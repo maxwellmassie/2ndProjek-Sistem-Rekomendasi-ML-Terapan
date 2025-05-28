@@ -33,6 +33,12 @@ Dalam era digital saat ini, pengguna anime menghadapi tantangan dalam memilih ju
 2. Memanfaatkan data rating pengguna dan fitur konten anime untuk menghasilkan rekomendasi yang akurat dan relevan. Dengan memproses data interaksi dan deskripsi konten, sistem akan memberikan rekomendasi berdasarkan kesamaan konten dan pola rating.
 3. Membangun model rekomendasi dengan metode Content-Based Filtering dan Collaborative Filtering dengan Matrix Factorization untuk meningkatkan akurasi rekomendasi.
 
+### Solution Statement
+1. Content-Based Filtering
+Menggunakan TF-IDF Vectorizer pada fitur genre dan deskripsi anime untuk menghasilkan representasi konten, kemudian menggunakan Cosine Similarity untuk merekomendasikan anime dengan konten mirip yang disukai pengguna.
+
+2. Collaborative Filtering dengan Matrix Factorization menggunakan Embedding Layer di TensorFlow/Keras
+Membuat model deep learning untuk mempelajari representasi laten (embedding) pengguna dan anime berdasarkan data rating, sehingga dapat memprediksi rating dan merekomendasikan anime yang sesuai dengan preferensi pengguna.
 
 
 ## Data Understanding
