@@ -11,6 +11,15 @@ Menurut Su dan Khoshgoftaar (2019), Collaborative Filtering adalah teknik yang p
 
 Proyek ini bertujuan membangun sistem rekomendasi anime menggunakan dataset MyAnimeList, memanfaatkan teknik Content-Based Filtering dan Collaborative Filtering untuk memberikan rekomendasi yang personal dan relevan.
 
+**Referensi**
+
+[1] X. Su dan T. M. Khoshgoftaar, “A survey of collaborative filtering techniques,” Advances in Artificial Intelligence, vol. 2019, Article ID 4214258, 2019.
+Tersedia online: https://doi.org/10.1155/2019/4214258
+
+[2] R. Faurina dan E. Sitanggang, “Implementasi Metode Content-Based Filtering dan Collaborative Filtering pada Sistem Rekomendasi Wisata di Bali,” Techno.COM, vol. 22, no. 4, pp. 870-881, Nov. 2023.
+Tersedia online: https://core.ac.uk/download/pdf/595469606.pdf
+
+
 ## Business Understanding
 
 Pada bagian ini, Anda perlu menjelaskan proses klarifikasi masalah.
