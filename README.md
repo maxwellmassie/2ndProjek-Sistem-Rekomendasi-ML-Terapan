@@ -64,10 +64,18 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 * **rating** (`int64`): Rating yang diberikan pengguna terhadap anime. Skala 1–10. Jika bernilai -1, berarti pengguna telah menonton anime tersebut tetapi tidak memberikan rating eksplisit.
 
 
+### Exploratory Data Analysis (EDA)
+#### Menampilkan info data Anime.csv
+#### Menampilkan info data Rating.csv
+#### Menampilkan Statistik Deskriptif Anime.csv
+#### Menampilkan Statistik Deskriptif Rating.csv
 
+#### Mengecek & Menampilkan Missing Value 
+#### Mengecek & Menampilkan Data Duplicate
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+#### Visualisasi Top 10 Genre Anime
+#### Visualisasi Berdasarkan type Anime
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
