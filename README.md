@@ -50,13 +50,13 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 
 ### Variabel-variabel pada Health and Lifestyle Data for Regression dataset adalah sebagai berikut:
 #### 📁 `Anime.csv` (12.294 data anime)
-* **anime_id** (`int64`): ID unik untuk setiap anime dari situs MyAnimeList. Digunakan sebagai penghubung dengan data rating. **Tidak memiliki missing value.**
-* **name** (`object`): Nama lengkap dari anime. **Tidak memiliki missing value.**
-* **genre** (`object`): Daftar genre dari anime, dipisahkan dengan koma (misalnya: "Action, Comedy"). **Memiliki 62 missing values.**
-* **type** (`object`): Tipe tayangan dari anime (misalnya TV, Movie, OVA, dll). **Memiliki 25 missing values.**
-* **episodes** (`object`): Jumlah episode dari anime. Disimpan sebagai teks karena beberapa nilai bisa berupa 'Unknown' atau tidak terisi secara numerik. **Tidak memiliki missing value, namun perlu pembersihan tipe data.**
-* **rating** (`float64`): Rata-rata rating dari pengguna terhadap anime tersebut dalam skala 1–10. **Memiliki 230 missing values.**
-* **members** (`int64`): Jumlah anggota komunitas yang memasukkan anime ke dalam daftar mereka. Mewakili tingkat popularitas anime. **Tidak memiliki missing value.**
+* **anime_id** (`int64`): ID unik untuk setiap anime dari situs MyAnimeList. Digunakan sebagai penghubung dengan data rating.
+* **name** (`object`): Nama lengkap atau judul dari anime.
+* **genre** (`object`): Daftar genre dari anime, dipisahkan dengan koma (misalnya: Action, Adventure, Drama, Fantasy, Magic,).
+* **type** (`object`): Tipe tayangan dari anime (misalnya TV, Movie, OVA, dll).
+* **episodes** (`object`): Jumlah episode dari anime. Disimpan sebagai teks karena beberapa nilai bisa berupa 'Unknown' atau tidak terisi secara numerik.
+* **rating** (`float64`): Rata-rata rating dari pengguna terhadap anime tersebut dalam skala 1–10.
+* **members** (`int64`): Jumlah anggota komunitas yang memasukkan anime ke dalam daftar mereka. Mewakili tingkat popularitas anime.
 
 #### 📁 `Rating.csv` (7.813.737 data interaksi pengguna)
 * **user_id** (`int64`): ID anonim dari pengguna. Dibuat secara acak dan tidak mengandung informasi identitas.
