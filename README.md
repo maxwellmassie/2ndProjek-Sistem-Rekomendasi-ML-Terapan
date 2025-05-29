@@ -58,6 +58,12 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 * **rating** (`float64`): Rata-rata rating dari pengguna terhadap anime tersebut dalam skala 1–10. **Memiliki 230 missing values.**
 * **members** (`int64`): Jumlah anggota komunitas yang memasukkan anime ke dalam daftar mereka. Mewakili tingkat popularitas anime. **Tidak memiliki missing value.**
 
+#### 📁 `Rating.csv` (7.813.737 data interaksi pengguna)
+* **user_id** (`int64`): ID anonim dari pengguna. Dibuat secara acak dan tidak mengandung informasi identitas.
+* **anime_id** (`int64`): ID anime yang dirating oleh pengguna. Berfungsi sebagai *foreign key* untuk menghubungkan ke `anime_id` di `Anime.csv`.
+* **rating** (`int64`): Rating yang diberikan pengguna terhadap anime. Skala 1–10. Jika bernilai -1, berarti pengguna telah menonton anime tersebut tetapi tidak memberikan rating eksplisit.
+
+
 
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
