@@ -66,6 +66,22 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 
 ### Exploratory Data Analysis (EDA)
 #### Menampilkan info data Anime.csv
+| Kolom      | Non-Null Count | Tipe Data |
+| :--------- | :------------- | :-------- |
+| `anime_id` | 12294          | `int64`   |
+| `name`     | 12294          | `object`  |
+| `genre`    | 12232          | `object`  |
+| `type`     | 12269          | `object`  |
+| `episodes` | 12294          | `object`  |
+| `rating`   | 12064          | `float64` |
+| `members`  | 12294          | `int64`   |
+**Ringkasan Tipe Data:**
+* `float64`: 1 kolom
+* `int64`: 2 kolom
+* `object`: 4 kolom
+
+**Total Memori:** 672.5+ KB
+
 #### Menampilkan info data Rating.csv
 #### Menampilkan Statistik Deskriptif Anime.csv
 #### Menampilkan Statistik Deskriptif Rating.csv
