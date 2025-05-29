@@ -48,12 +48,17 @@ Dataset ini digunakan untuk membangun sistem rekomendasi anime berbasis Collabor
 Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi berbasis pembelajaran mesin, serta pemahaman pola preferensi pengguna terhadap berbagai genre dan jenis anime.
 - Anime User Rating and Metadata for Recommendation System: [Kaggle](https://www.kaggle.com/datasets/CooperUnion/anime-recommendations-database/).
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+### Variabel-variabel pada Health and Lifestyle Data for Regression dataset adalah sebagai berikut:
+#### 📁 `Anime.csv` (12.294 data anime)
+* **`anime_id`** (`int64`): ID unik untuk setiap anime dari situs MyAnimeList. Digunakan sebagai penghubung dengan data rating. **Tidak memiliki missing value.**
+* **`name`** (`object`): Nama lengkap dari anime. **Tidak memiliki missing value.**
+* **`genre`** (`object`): Daftar genre dari anime, dipisahkan dengan koma (misalnya: "Action, Comedy"). **Memiliki 62 missing values.**
+* **`type`** (`object`): Tipe tayangan dari anime (misalnya TV, Movie, OVA, dll). **Memiliki 25 missing values.**
+* **`episodes`** (`object`): Jumlah episode dari anime. Disimpan sebagai teks karena beberapa nilai bisa berupa 'Unknown' atau tidak terisi secara numerik. **Tidak memiliki missing value, namun perlu pembersihan tipe data.**
+* **`rating`** (`float64`): Rata-rata rating dari pengguna terhadap anime tersebut dalam skala 1–10. **Memiliki 230 missing values.**
+* **`members`** (`int64`): Jumlah anggota komunitas yang memasukkan anime ke dalam daftar mereka. Mewakili tingkat popularitas anime. **Tidak memiliki missing value.**
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
