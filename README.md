@@ -343,13 +343,10 @@ print("\nHasil Evaluasi pada Data Validasi:")
 print(f"Loss (MSE): {results[0]:.4f}")
 print(f"RMSE: {results[1]:.4f}")
 ```
+#### Hasil Evaluasi dengan MSE & RMSE
+![image](https://github.com/user-attachments/assets/9bc6268c-1b9f-4f43-8bff-9f54f1a62624)
 
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+Hasil evaluasi Collaborative Filtering menunjukkan performa model pada data validasi dengan nilai loss (MSE) sebesar sekitar 0.0599 dan RMSE sekitar 0.2445. Nilai MSE yang kecil menunjukkan bahwa rata-rata kuadrat selisih antara rating asli dan prediksi model cukup rendah, artinya model mampu memprediksi rating dengan akurasi yang baik.
 
 
 ---
