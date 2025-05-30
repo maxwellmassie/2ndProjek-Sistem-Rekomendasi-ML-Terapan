@@ -200,7 +200,7 @@ Di mana:
 
 #### Contoh Implementasi dan Hasil Evaluasi
 
-Dalam konteks model Collaborative Filtering Anda, Anda dapat menghitung MSE dan RMSE setelah proses pelatihan. Berikut adalah contoh kode dan output yang menunjukkan hasil evaluasi:
+Dalam konteks model Collaborative Filtering , menghitung MSE dan RMSE setelah proses pelatihan. Berikut adalah contoh kode dan output yang menunjukkan hasil evaluasi:
 
 ```python
 # Asumsi 'model' adalah model Collaborative Filtering Anda
