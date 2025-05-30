@@ -244,7 +244,7 @@ print(duplicate_genre_names.head())
 
 ![image](https://github.com/user-attachments/assets/8a952eef-2ae4-4c51-9a76-0eb73c866e8b)
 
-Setelah proses mengambil genre pertama dari setiap name, dan menyamakan genre berdasarkan nama anime, agar genre menjadi konsisten dan menghindari duplikasi atau inkonsistensi pada fitur genre. dan memberikan output `0` atau tidak `**ada name anime yang sama memiliki genre yang berbeda**`.
+Setelah proses mengambil genre pertama dari setiap name, dan menyamakan genre berdasarkan nama anime, dan memberikan output `0` atau `tidak ada name anime yang sama memiliki genre yang berbeda`. Tujuannya agar genre menjadi konsisten dan menghindari duplikasi atau inkonsistensi pada fitur genre.
 
 
 
