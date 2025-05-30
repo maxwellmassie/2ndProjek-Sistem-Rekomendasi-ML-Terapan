@@ -26,13 +26,13 @@ Tersedia online: https://core.ac.uk/download/pdf/595469606.pdf
 Dalam era digital saat ini, pengguna anime menghadapi tantangan dalam memilih judul yang sesuai dari ribuan pilihan yang tersedia. Sistem rekomendasi yang efektif sangat dibutuhkan untuk membantu pengguna menemukan anime yang sesuai dengan preferensi mereka berdasarkan interaksi dan karakteristik konten.
 
 ### Problem Statements
-1. Bagaimana membantu pengguna menemukan anime yang sesuai dengan preferensi mereka dari data rating dan fitur konten yang tersedia?
-2. Bagaimana membangun model rekomendasi yang akurat dan efisien dengan memanfaatkan data interaksi pengguna dan informasi anime?
+1. Bagaimana membantu pengguna menemukan anime yang sesuai dengan preferensi mereka berdasarkan data rating historis dan fitur genre anime?
+2. Bagaimana membangun model rekomendasi yang akurat dan efisien dengan memanfaatkan data interaksi pengguna serta informasi konten anime untuk menghasilkan rekomendasi yang personal dan relevan?
 
 ### Goals
-1. Mengembangkan sistem rekomendasi anime yang memberikan rekomendasi personal berbasis preferensi pengguna dan karakteristik konten anime.
-2. Memanfaatkan data rating pengguna dan fitur konten anime untuk menghasilkan rekomendasi yang akurat dan relevan. Dengan memproses data interaksi dan deskripsi konten, sistem akan memberikan rekomendasi berdasarkan kesamaan konten dan pola rating.
-3. Membangun model rekomendasi dengan metode Content-Based Filtering dan Collaborative Filtering dengan Matrix Factorization untuk meningkatkan akurasi rekomendasi.
+1. Mengembangkan sistem rekomendasi anime yang mampu memberikan rekomendasi personal dengan memadukan preferensi pengguna dari data rating dan karakteristik konten anime, terutama genre.
+2. Memanfaatkan data interaksi pengguna dan fitur genre anime untuk menghasilkan rekomendasi yang akurat dan sesuai, dengan pendekatan pengolahan data interaksi (rating) dan analisis kesamaan konten (genre).
+3. Membangun dan mengimplementasikan model rekomendasi berbasis Content-Based Filtering dan Collaborative Filtering menggunakan Matrix Factorization, guna meningkatkan kualitas dan akurasi rekomendasi anime yang diberikan kepada pengguna.
 
 ### Solution Statement
 1. Content-Based Filtering
