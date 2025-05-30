@@ -8,14 +8,13 @@ Pertumbuhan pesat industri hiburan digital, khususnya anime, menyebabkan kebutuh
 
 Metode Content-Based Filtering yang memanfaatkan fitur konten seperti genre dan Collaborative Filtering yang menggunakan interaksi pengguna terbukti efektif dalam merekomendasikan item yang relevan. Penggabungan kedua metode ini membantu mengatasi keterbatasan masing-masing dan memberikan rekomendasi yang lebih akurat.
 
-Menurut Su dan Khoshgoftaar (2019), Collaborative Filtering adalah teknik yang paling banyak digunakan dalam sistem rekomendasi karena kemampuannya menangkap pola preferensi pengguna dari data interaksi [1]. Di Indonesia, penelitian oleh Faurina dan Sitanggang (2023) menerapkan Content-Based Filtering dan Collaborative Filtering pada sistem rekomendasi destinasi wisata di Bali. Penelitian ini menunjukkan bahwa pendekatan hybrid tersebut efektif dalam memberikan rekomendasi personal dengan performa evaluasi yang baik [2].
+Menurut Pazzani dan Billsus (2018), Content-Based Recommendation Systems adalah sistem yang merekomendasikan item kepada pengguna berdasarkan deskripsi item dan profil minat pengguna. Sistem ini dapat digunakan di berbagai domain seperti rekomendasi halaman web, artikel berita, restoran, program televisi, dan barang dagangan [1]. Di Indonesia, penelitian oleh Faurina dan Sitanggang (2023) menerapkan Content-Based Filtering dan Collaborative Filtering pada sistem rekomendasi destinasi wisata di Bali. Penelitian ini menunjukkan bahwa pendekatan hybrid tersebut efektif dalam memberikan rekomendasi personal dengan performa evaluasi yang baik [2].
 
 Proyek ini bertujuan membangun sistem rekomendasi anime menggunakan dataset MyAnimeList, memanfaatkan teknik Content-Based Filtering dan Collaborative Filtering untuk memberikan rekomendasi yang personal dan relevan.
 
 **Referensi**
 
-[1] X. Su dan T. M. Khoshgoftaar, “A survey of collaborative filtering techniques,” Advances in Artificial Intelligence, vol. 2019, Article ID 4214258, 2019.
-Tersedia online: https://doi.org/10.1155/2019/4214258
+[1] M. J. Pazzani dan D. Billsus, “Content-based recommendation systems,” dalam The Adaptive Web, P. Brusilovsky, A. Kobsa, dan W. Nejdl, Eds. Berlin, Heidelberg: Springer, 2018, hlm. 325–341. Tersedia online: https://doi.org/10.1007/978-3-540-72079-9_10
 
 [2] R. Faurina dan E. Sitanggang, “Implementasi Metode Content-Based Filtering dan Collaborative Filtering pada Sistem Rekomendasi Wisata di Bali,” Techno.COM, vol. 22, no. 4, pp. 870-881, Nov. 2023.
 Tersedia online: https://core.ac.uk/download/pdf/595469606.pdf
