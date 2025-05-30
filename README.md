@@ -141,7 +141,7 @@ Berdasarkan diagram batang "Jumlah Anime berdasarkan Tipe", tipe anime "TV" meru
 
 
 ## Data Preprocessing & Preparation
-1. **Sampling Data Rating**: Karena dataset rating sangat besar, maka mengambil sampel 50.000 baris secara acak untuk mempercepat proses dan mengurangi beban komputasi, sambil tetap menjaga representasi data.
+1. **Sampling Data Rating**: Karena dataset rating sangat besar(7.813.737 data), maka mengambil sampel 50.000 baris saja secara acak untuk mempercepat proses dan mengurangi beban komputasi, sambil tetap menjaga representasi data.
 ```python
 # 1. Sampling Data Rating
 df_rating = df_rating.sample(n=50000, random_state=42).reset_index(drop=True)
@@ -152,6 +152,11 @@ print(df_rating.info())
 # mengecek beberapa baris awal
 print(df_rating.head())
 ```
+**output**:
+![image](https://github.com/user-attachments/assets/40eb8f95-2952-4a57-8140-e552a8cdcac8)
+Hasilnya mereplace DataFrame df_rating baru yang berisi 50.000 baris acak. DataFrame ini memiliki 3 kolom (user_id, anime_id, dan rating), semuanya bertipe integer (int64), dan tidak ada nilai kosong di ketiga kolom tersebut. Ini menunjukkan bahwa proses sampling berjalan sesuai harapan dan menghasilkan subset data yang bersih untuk analisis lebih lanjut.
+
+
 
 2. **Membersihkan Nama Anime**: Menghapus karakter khusus pada kolom nama agar data teks lebih bersih dan konsisten, memudahkan proses analisis dan pencocokan nama.
 ```python
@@ -172,6 +177,8 @@ print(df_anime.isnull().sum())
 print("\nMissing Values in df_rating:")
 print(df_rating.isnull().sum())
 ```
+
+
 
 4. **Menghapus Data Duplikat**: Menghilangkan baris duplikat pada data rating untuk menjaga integritas data dan menghindari bias berlebih dalam model rekomendasi.
 ```python
