@@ -150,8 +150,6 @@ Di mana:
 - $\text{of our recommendations that are relevant}$: Jumlah item yang direkomendasikan oleh sistem yang benar-benar relevan bagi pengguna.
 - $\text{of items we recommended}$: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
 
----
-
 **Contoh: Berdasarkan Hasil SubBab `6.1.2 Mendapatkan Rekomendasi`**
 Jika sistem rekomendasi merekomendasikan 5 film, dan ke5 film tersebut relevan bagi pengguna, maka presisinya adalah:
 
@@ -162,6 +160,60 @@ $$
 Ini berarti **100%** dari rekomendasi adalah relevan.
 
 ### Evaluasi Collaborative Filtering
+**Metrik Evaluasi Collaborative Filtering: MSE & RMSE**
+
+Dalam sistem rekomendasi berbasis Collaborative Filtering, Mean Squared Error (MSE) dan Root Mean Squared Error (RMSE) adalah metrik umum yang digunakan untuk mengevaluasi akurasi prediksi model. Keduanya mengukur rata-rata kuadrat atau akar kuadrat dari kesalahan (selisih antara nilai prediksi dan nilai sebenarnya).
+
+---
+
+## Mean Squared Error (MSE)
+
+MSE mengukur rata-rata dari kuadrat error (selisih) antara nilai yang diprediksi dan nilai aktual. Karena mengkuadratkan error, MSE memberikan bobot yang lebih besar pada error yang besar, sehingga sensitif terhadap outlier.
+
+**Rumus MSE:**
+
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+$$
+
+Di mana:
+* $n$: Jumlah observasi (data).
+* $y_i$: Nilai aktual (misalnya, rating sebenarnya yang diberikan pengguna).
+* $\hat{y}_i$: Nilai prediksi (misalnya, rating yang diprediksi oleh model).
+
+---
+
+## Root Mean Squared Error (RMSE)
+
+RMSE adalah akar kuadrat dari MSE. Ini lebih mudah diinterpretasikan karena unitnya sama dengan unit variabel output (misalnya, unit rating). RMSE juga sensitif terhadap error besar, sama seperti MSE.
+
+**Rumus RMSE:**
+
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} = \sqrt{\text{MSE}}
+$$
+
+Di mana:
+* $n$: Jumlah observasi (data).
+* $y_i$: Nilai aktual.
+* $\hat{y}_i$: Nilai prediksi.
+
+---
+
+## Contoh Implementasi dan Hasil Evaluasi
+
+Dalam konteks model Collaborative Filtering Anda, Anda dapat menghitung MSE dan RMSE setelah proses pelatihan. Berikut adalah contoh kode dan output yang menunjukkan hasil evaluasi:
+
+```python
+# Asumsi 'model' adalah model Collaborative Filtering Anda
+# Asumsi 'x_val' dan 'y_val' adalah data validasi dan labelnya
+results = model.evaluate(x_val, y_val, verbose=1)
+
+print("\nHasil Evaluasi pada Data Validasi:")
+print(f"Loss (MSE): {results[0]:.4f}")
+print(f"RMSE: {results[1]:.4f}")
+```
+
 
 **---Ini adalah bagian akhir laporan---**
 
