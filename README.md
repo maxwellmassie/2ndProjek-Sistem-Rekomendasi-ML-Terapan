@@ -156,6 +156,7 @@ print(df_rating.head())
 **output**:
 
 ![image](https://github.com/user-attachments/assets/40eb8f95-2952-4a57-8140-e552a8cdcac8)
+
 Hasilnya mereplace DataFrame df_rating baru yang berisi 50.000 baris acak. DataFrame ini memiliki 3 kolom (user_id, anime_id, dan rating), semuanya bertipe integer (int64), dan tidak ada nilai kosong di ketiga kolom tersebut. Ini menunjukkan bahwa proses sampling berjalan sesuai harapan dan menghasilkan subset data yang bersih untuk analisis lebih lanjut.
 
 
@@ -180,7 +181,11 @@ print("\nMissing Values in df_rating:")
 print(df_rating.isnull().sum())
 ```
 
+**output**:
 
+![image](https://github.com/user-attachments/assets/35d2a6e4-b895-41ea-804f-103412a80ff7)
+
+Setelah tahap pembersihan data, hasil pengecekan menunjukkan bahwa kedua dataset, df_anime dan df_rating, kini bebas dari nilai yang hilang (missing values) di semua kolomnya, siap untuk analisis dan pemodelan lebih lanjut.
 
 4. **Menghapus Data Duplikat**: Menghilangkan baris duplikat pada data rating untuk menjaga integritas data dan menghindari bias berlebih dalam model rekomendasi.
 ```python
