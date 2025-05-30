@@ -267,7 +267,7 @@ Sementara itu, daftar Top 10 rekomendasi anime untuk user ini sebagian besar men
 
 ## Evaluation
 ### Evaluasi Content-Based
-**Metrik Evaluasi Sistem Rekomendasi: Presisi**
+**Metrik Evaluasi Sistem Rekomendasi: Recommender System precision**
 
 Presisi adalah metrik yang digunakan untuk mengukur seberapa relevan item yang direkomendasikan oleh sistem. Ini dihitung sebagai rasio jumlah rekomendasi yang relevan dengan total jumlah item yang direkomendasikan.
 
