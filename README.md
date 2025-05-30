@@ -166,7 +166,7 @@ Dalam sistem rekomendasi berbasis Collaborative Filtering, Mean Squared Error (M
 
 ---
 
-## Mean Squared Error (MSE)
+#### Mean Squared Error (MSE)
 
 MSE mengukur rata-rata dari kuadrat error (selisih) antara nilai yang diprediksi dan nilai aktual. Karena mengkuadratkan error, MSE memberikan bobot yang lebih besar pada error yang besar, sehingga sensitif terhadap outlier.
 
@@ -183,7 +183,7 @@ Di mana:
 
 ---
 
-## Root Mean Squared Error (RMSE)
+#### Root Mean Squared Error (RMSE)
 
 RMSE adalah akar kuadrat dari MSE. Ini lebih mudah diinterpretasikan karena unitnya sama dengan unit variabel output (misalnya, unit rating). RMSE juga sensitif terhadap error besar, sama seperti MSE.
 
@@ -198,9 +198,7 @@ Di mana:
 * $y_i$: Nilai aktual.
 * $\hat{y}_i$: Nilai prediksi.
 
----
-
-## Contoh Implementasi dan Hasil Evaluasi
+#### Contoh Implementasi dan Hasil Evaluasi
 
 Dalam konteks model Collaborative Filtering Anda, Anda dapat menghitung MSE dan RMSE setelah proses pelatihan. Berikut adalah contoh kode dan output yang menunjukkan hasil evaluasi:
 
