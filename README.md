@@ -55,6 +55,8 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 
 ### Variabel-variabel pada Health and Lifestyle Data for Regression dataset adalah sebagai berikut:
 #### 📁 `Anime.csv` (12.294 data anime)
+![image](https://github.com/user-attachments/assets/d675792f-f4be-49c8-984c-74ce47226f53)
+
 * **anime_id** (`int64`): ID unik untuk setiap anime dari situs MyAnimeList. Digunakan sebagai penghubung dengan data rating.
 * **name** (`object`): Nama lengkap atau judul dari anime.
 * **genre** (`object`): Daftar genre dari anime, dipisahkan dengan koma (misalnya: Action, Adventure, Drama, Fantasy, Magic,).
@@ -64,6 +66,8 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 * **members** (`int64`): Jumlah anggota komunitas yang memasukkan anime ke dalam daftar mereka. Mewakili tingkat popularitas anime.
 
 #### 📁 `Rating.csv` (7.813.737 data interaksi pengguna)
+![image](https://github.com/user-attachments/assets/77abc7e5-98ec-4e0d-a658-e17651d9fb5d)
+
 * **user_id** (`int64`): ID anonim dari pengguna. Dibuat secara acak dan tidak mengandung informasi identitas.
 * **anime_id** (`int64`): ID anime yang dirating oleh pengguna. Berfungsi sebagai *foreign key* untuk menghubungkan ke `anime_id` di `Anime.csv`.
 * **rating** (`int64`): Rating yang diberikan pengguna terhadap anime. Skala 1–10. Jika bernilai -1, berarti pengguna telah menonton anime tersebut tetapi tidak memberikan rating eksplisit.
