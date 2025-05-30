@@ -126,9 +126,13 @@ Dataset anime tidak mengandung data duplikat sama sekali, sedangkan pada dataset
 #### Visualisasi Top 10 Genre Anime
 ![image](https://github.com/user-attachments/assets/d673475f-897e-402c-a7f2-73011002778e)
 
+Berdasarkan diagram batang "Top 10 Genre Anime", genre "Comedy" mendominasi dengan jumlah tertinggi (4645), diikuti oleh "Action" (2845) dan "Adventure" (2348). Selanjutnya, "Fantasy" dan "Sci-Fi" memiliki frekuensi yang mirip, dan secara bertahap menurun hingga genre "School" yang paling jarang muncul dalam daftar 10 teratas ini.
+
 
 #### Visualisasi Berdasarkan type Anime
 ![image](https://github.com/user-attachments/assets/a2711f91-0183-495a-8aca-15baaa73312f)
+
+Berdasarkan diagram batang "Jumlah Anime berdasarkan Tipe", tipe anime "TV" merupakan yang paling banyak dengan total 3787, diikuti oleh "OVA" (3311) dan "Movie" (2348). Tipe "Special" memiliki jumlah yang lebih rendah (1676), dan kemudian secara signifikan menurun untuk tipe "ONA" (659) dan "Music" (488) yang merupakan jumlah terkecil dalam kategori ini.
 
 
 
