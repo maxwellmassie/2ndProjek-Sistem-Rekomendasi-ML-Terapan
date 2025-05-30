@@ -242,7 +242,7 @@ Pada tahap ini, dibuat fungsi anime_recommendations yang berfungsi untuk memberi
 ##### Menyajikan top-N recommendation sebagai output.
 ![image](https://github.com/user-attachments/assets/07652e04-0873-4168-b969-e2c32ecfe817)
 
-Sebagai contoh, sistem digunakan untuk mencari anime yang mirip dengan "Kimi no Na wa", yang memiliki genre Drama. Sistem mengecek baris dari anime tersebut dalam dataset, lalu menghitung kemiripan genre dengan seluruh anime lainnya menggunakan nilai cosine similarity dari data TF-IDF. Hasilnya adalah 5 rekomendasi anime yang memiliki genre yang mirip—dalam hal ini drama—dengan "Kimi no Na wa", memberikan saran tontonan yang relevan berdasarkan konten.
+Sebagai contoh, sistem digunakan untuk mencari anime yang mirip dengan "Kimi no Na wa", yang memiliki genre Drama. Sistem mengecek baris dari anime tersebut dalam dataset, lalu menghitung kemiripan genre dengan seluruh anime lainnya menggunakan nilai cosine similarity dari data TF-IDF. Hasilnya adalah 5 rekomendasi anime yang memiliki genre yang mirip,dalam hal ini drama-dengan "Kimi no Na wa", memberikan saran tontonan yang relevan berdasarkan konten.
 
 
 
