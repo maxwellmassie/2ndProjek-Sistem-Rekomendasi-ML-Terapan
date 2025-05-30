@@ -137,11 +137,96 @@ Berdasarkan diagram batang "Jumlah Anime berdasarkan Tipe", tipe anime "TV" meru
 
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+# **5. Data Preprocessing & Preparation**
+1. **Sampling Data Rating**: Karena dataset rating sangat besar, maka mengambil sampel 50.000 baris secara acak untuk mempercepat proses dan mengurangi beban komputasi, sambil tetap menjaga representasi data.
+```python
+# 1. Sampling Data Rating
+df_rating = df_rating.sample(n=50000, random_state=42).reset_index(drop=True)
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+# mengecek info setelah sampling
+print(df_rating.info())
+
+# mengecek beberapa baris awal
+print(df_rating.head())
+```
+
+2. **Membersihkan Nama Anime**: Menghapus karakter khusus pada kolom nama agar data teks lebih bersih dan konsisten, memudahkan proses analisis dan pencocokan nama.
+```python
+# 2. Membersihkan Nama Anime dengan mengapus karakter khusus pada kolom nama
+df_anime['name'] = df_anime['name'].str.replace(r'[^a-zA-Z0-9\s]', '', regex=True)
+```
+
+3. **Handling Missing Values**: Menghapus baris yang memiliki nilai kosong di kolom penting seperti genre, tipe, dan rating agar model dan analisis tidak terganggu oleh data yang tidak lengkap atau bias data.
+```python
+# 3. Handling Missing Values
+# Menghapus baris yang memiliki missing value di kolom 'genre', 'type', dan 'rating'
+df_anime.dropna(subset=['genre', 'type', 'rating'], inplace=True)
+
+# Mengecek kembali Missing Values
+print("Missing Values in df_anime:")
+print(df_anime.isnull().sum())
+
+print("\nMissing Values in df_rating:")
+print(df_rating.isnull().sum())
+```
+
+4. **Menghapus Data Duplikat**: Menghilangkan baris duplikat pada data rating untuk menjaga integritas data dan menghindari bias berlebih dalam model rekomendasi.
+```python
+# 4. Menghapus Data Duplikat
+df_rating.drop_duplicates(inplace=True)
+
+print("\nDuplicate Rows in df_rating:")
+print(df_rating.duplicated().sum())
+```
+
+5. **Standarisasi Genre**: Mengambil genre pertama dari setiap anime dan menyamakan genre berdasarkan nama anime dengan mengambil genre yang paling sering muncul agar genre menjadi konsisten dan menghindari duplikasi atau inkonsistensi pada fitur genre.
+```python
+# 5. Standarisasi Genre
+# mengambil genre pertama dari setiap data
+df_anime['genre'] = df_anime['genre'].apply(lambda x: x.split(',')[0].strip())
+
+# Menyamakan Jenis genre berdsarkan name
+# Ambil genre yang paling umum untuk setiap nama
+genre_consensus = (
+    df_anime.groupby('name')['genre']
+    .agg(lambda x: x.mode().iloc[0])  # genre paling sering muncul
+    .reset_index()
+    .rename(columns={'genre': 'consistent_genre'})
+)
+
+# Gabungkan ke dataframe utama untuk menyamakan genre
+df_anime.drop(columns='genre', inplace=True)
+df_anime = df_anime.merge(genre_consensus, on='name')
+df_anime.rename(columns={'consistent_genre': 'genre'}, inplace=True)
+
+
+# mengecek apakah ada nama anime yang memiliki lebih dari 1 genre unik
+genre_variation = (
+    df_anime.groupby('name')['genre']
+    .nunique()
+    .reset_index()
+    .rename(columns={'genre': 'unique_genre_count'})
+)
+
+# Filter nama yang punya lebih dari 1 genre berbeda
+duplicate_genre_names = genre_variation[genre_variation['unique_genre_count'] > 1]
+
+# Menampilkan hasil
+print(f"Ada {len(duplicate_genre_names)} nama anime yang memiliki genre berbeda.")
+print(duplicate_genre_names.head())
+```
+
+6. **Menangani Rating -1**: Mengubah nilai rating -1 menjadi 0 untuk menandai anime yang ditonton tapi tidak diberi rating, sehingga memudahkan pemodelan tanpa kehilangan informasi interaksi pengguna.
+```python
+# 6. Menangani Rating -1 dengan mengganti rating -1 menjadi 0 (menandakan user menonton tanpa memberi rating)
+df_rating['rating'] = df_rating['rating'].apply(lambda x: 0 if x == -1 else x)
+```
+
+7. **Mengecek Ulang Data**: Melakukan pengecekan awal pada data anime setelah preprocessing untuk memastikan transformasi berjalan sesuai harapan.
+```python
+# 7.Mengecek Ulang Data dataset anime_csv
+df_anime.head()
+```
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
