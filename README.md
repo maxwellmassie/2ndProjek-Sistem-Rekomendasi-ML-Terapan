@@ -75,6 +75,7 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 | `episodes` | 12294          | `object`  |
 | `rating`   | 12064          | `float64` |
 | `members`  | 12294          | `int64`   |
+
 **Ringkasan Tipe Data:**
 * `float64`: 1 kolom
 * `int64`: 2 kolom
@@ -83,6 +84,17 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 **Total Memori:** 672.5+ KB
 
 #### Menampilkan info data Rating.csv
+| Kolom     | Non-Null Count | Tipe Data |
+| :-------- | :------------- | :-------- |
+| `user_id` | 7,813,737      | `int64`   |
+| `anime_id`| 7,813,737      | `int64`   |
+| `rating`  | 7,813,737      | `int64`   |
+
+**Ringkasan Tipe Data:**
+* `int64`: 3 kolom
+
+**Total Memori:** 178.8 MB
+
 #### Menampilkan Statistik Deskriptif Anime.csv
 #### Menampilkan Statistik Deskriptif Rating.csv
 
