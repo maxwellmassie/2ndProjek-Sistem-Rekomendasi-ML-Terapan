@@ -228,12 +228,25 @@ df_rating['rating'] = df_rating['rating'].apply(lambda x: 0 if x == -1 else x)
 df_anime.head()
 ```
 
-## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
+## Model Solution & Result
+*Notes: karena kode Modeling terlalu panjang dan banyak, maka tidak memungkinkan untuk ditampilkan pada laporan. Kode lengkap berada pada file `ML_Terapan_Proyek2.ipynb`.*
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+### 1. Content-Based Filtering
+Model Content-Based Filtering memiliki kelebihan dalam memberikan rekomendasi yang personal dan relevan karena didasarkan pada karakteristik item yang disukai pengguna, serta tidak memerlukan data dari pengguna lain sehingga cocok untuk sistem dengan jumlah pengguna yang masih terbatas. Namun, model ini juga memiliki kekurangan, seperti terbatasnya cakupan rekomendasi karena hanya menyarankan item yang mirip dengan yang sudah diketahui, serta kesulitan menangani cold start untuk item yang minim informasi.
+
+Dalam implementasinya, model ini dibangun untuk merekomendasikan anime berdasarkan kemiripan genre. Proses dimulai dengan menyiapkan data yang hanya mencakup kolom name dan genre, karena genre menjadi dasar perhitungan kemiripan. Genre diolah menggunakan TF-IDF Vectorizer dengan tokenizer khusus untuk memecah genre yang dipisahkan koma, menghasilkan representasi numerik dari setiap genre. Hasilnya adalah matriks TF-IDF berukuran 12017×40 yang menunjukkan bobot pentingnya setiap genre bagi tiap anime. Matriks ini kemudian dikonversi ke dalam DataFrame agar lebih mudah dianalisis, di mana setiap nilai menggambarkan kekuatan representasi sebuah genre pada anime tertentu. Selanjutnya, digunakan cosine similarity untuk mengukur tingkat kemiripan antar anime berdasarkan vektor genre-nya. Hasilnya adalah matriks similarity 12017×12017 yang menunjukkan seberapa mirip dua anime dalam hal genre, dan menjadi dasar dalam menghasilkan rekomendasi anime yang relevan secara konten.
+
+#### Result Mendapatkan Rekomendasi dengan Content-Based Filtering
+Pada tahap ini, dibuat fungsi anime_recommendations yang berfungsi untuk memberikan rekomendasi anime yang mirip berdasarkan nama anime yang diberikan sebagai input. Fungsi ini memanfaatkan matriks cosine similarity yang telah dihitung sebelumnya untuk mencari k anime dengan nilai kemiripan tertinggi terhadap anime yang dicari. Nilai k diatur sebesar 5, artinya sistem akan menampilkan 5 rekomendasi teratas. Fungsi ini juga memastikan bahwa anime yang dijadikan acuan tidak termasuk dalam daftar rekomendasi, sehingga hanya anime lain yang relevan secara genre yang ditampilkan.
+
+##### Menyajikan top-N recommendation sebagai output.
+![image](https://github.com/user-attachments/assets/07652e04-0873-4168-b969-e2c32ecfe817)
+
+Sebagai contoh, sistem digunakan untuk mencari anime yang mirip dengan "Kimi no Na wa", yang memiliki genre Drama. Sistem mengecek baris dari anime tersebut dalam dataset, lalu menghitung kemiripan genre dengan seluruh anime lainnya menggunakan nilai cosine similarity dari data TF-IDF. Hasilnya adalah 5 rekomendasi anime yang memiliki genre yang mirip—dalam hal ini drama—dengan "Kimi no Na wa", memberikan saran tontonan yang relevan berdasarkan konten.
+
+
+
+### 2. Collaborative Filtering
 
 ## Evaluation
 ### Evaluasi Content-Based
