@@ -135,12 +135,33 @@ Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk meny
 - Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+### Evaluasi Content-Based
+**Metrik Evaluasi Sistem Rekomendasi: Presisi**
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Presisi adalah metrik yang digunakan untuk mengukur seberapa relevan item yang direkomendasikan oleh sistem. Ini dihitung sebagai rasio jumlah rekomendasi yang relevan dengan total jumlah item yang direkomendasikan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+Rumus untuk presisi (`P`) adalah sebagai berikut:
+
+$$
+P = \frac{\text{# of our recommendations that are relevant}}{\text{# of items we recommended}}
+$$
+
+Di mana:
+- $\text{# of our recommendations that are relevant}$: Jumlah item yang direkomendasikan oleh sistem yang benar-benar relevan bagi pengguna.
+- $\text{# of items we recommended}$: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
+
+---
+
+**Contoh: Berdasarkan Hasil SubBab `6.1.2 Mendapatkan Rekomendasi`**
+Jika sistem rekomendasi merekomendasikan 5 film, dan ke5 film tersebut relevan bagi pengguna, maka presisinya adalah:
+
+$$
+P = \frac{5}{5} = 1
+$$
+
+Ini berarti **100%** dari rekomendasi adalah relevan.
+
+### Evaluasi Collaborative Filtering
 
 **---Ini adalah bagian akhir laporan---**
 
