@@ -96,13 +96,28 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 **Total Memori:** 178.8 MB
 
 #### Menampilkan Statistik Deskriptif Anime.csv
-#### Menampilkan Statistik Deskriptif Rating.csv
+![image](https://github.com/user-attachments/assets/9d1f1971-f3b1-4263-9c9f-99acebb13737)
 
-#### Mengecek & Menampilkan Missing Value 
+
+#### Menampilkan Statistik Deskriptif Rating.csv
+![image](https://github.com/user-attachments/assets/0cd3e1bd-a7a9-4be5-aae5-be50a490d5f1)
+
+
+#### Mengecek & Menampilkan Missing Value
+![image](https://github.com/user-attachments/assets/299e6343-bed7-48b8-a2c0-34a7802dacc3)
+
+
 #### Mengecek & Menampilkan Data Duplicate
+![image](https://github.com/user-attachments/assets/42d94c8b-0df6-4fc2-98e2-59c3b0748cbe)
+
 
 #### Visualisasi Top 10 Genre Anime
+![image](https://github.com/user-attachments/assets/d673475f-897e-402c-a7f2-73011002778e)
+
+
 #### Visualisasi Berdasarkan type Anime
+![image](https://github.com/user-attachments/assets/a2711f91-0183-495a-8aca-15baaa73312f)
+
 
 
 ## Data Preparation
