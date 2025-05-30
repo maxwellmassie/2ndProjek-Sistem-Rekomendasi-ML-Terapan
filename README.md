@@ -336,8 +336,7 @@ Di mana:
 Dalam konteks model Collaborative Filtering , menghitung MSE dan RMSE setelah proses pelatihan. Berikut adalah contoh kode dan output yang menunjukkan hasil evaluasi:
 
 ```python
-# Asumsi 'model' adalah model Collaborative Filtering Anda
-# Asumsi 'x_val' dan 'y_val' adalah data validasi dan labelnya
+# 'x_val' dan 'y_val' adalah data validasi dan labelnya
 results = model.evaluate(x_val, y_val, verbose=1)
 
 print("\nHasil Evaluasi pada Data Validasi:")
