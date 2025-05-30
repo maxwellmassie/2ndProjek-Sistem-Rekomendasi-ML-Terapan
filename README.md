@@ -263,7 +263,7 @@ df_anime.head()
 
 ![image](https://github.com/user-attachments/assets/a3d78073-4491-42b5-8d82-096157001c71)
 
-Kolom 'name' pada df_anime kini bersih dari karakter khusus, menghasilkan data nama yang lebih konsisten dan berkualitas.
+Kolom `name` pada df_anime kini bersih dari karakter khusus, menghasilkan data nama yang lebih konsisten dan berkualitas.
 
 
 
