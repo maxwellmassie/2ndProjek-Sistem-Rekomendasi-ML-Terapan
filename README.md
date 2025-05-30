@@ -140,10 +140,10 @@ Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk meny
 
 1. **Presisi** adalah metrik yang digunakan untuk mengukur seberapa relevan item yang direkomendasikan oleh sistem kepada pengguna. Metrik ini penting dalam mengevaluasi kualitas dari sistem rekomendasi, terutama dalam hal relevansi.
 
-**Rumus:**
+**Rumus untuk presisi (`P`) adalah sebagai berikut:**
 
 $$
-P = \frac{\text{Jumlah item relevan yang direkomendasikan}}{\text{Jumlah total item yang direkomendasikan}}
+P = \frac{\text{# Jumlah item relevan yang direkomendasikan}}{\text{# Jumlah total item yang direkomendasikan}}
 $$
 
 * Jumlah item relevan yang direkomendasikan: banyaknya item yang direkomendasikan oleh sistem dan benar-benar sesuai dengan preferensi pengguna.
