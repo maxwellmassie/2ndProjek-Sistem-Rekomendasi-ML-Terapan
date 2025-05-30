@@ -349,6 +349,11 @@ print(f"RMSE: {results[1]:.4f}")
 Hasil evaluasi Collaborative Filtering menunjukkan performa model pada data validasi dengan nilai loss (MSE) sebesar sekitar 0.0599 dan RMSE sekitar 0.2445. Nilai MSE yang kecil menunjukkan bahwa rata-rata kuadrat selisih antara rating asli dan prediksi model cukup rendah, artinya model mampu memprediksi rating dengan akurasi yang baik.
 
 
+## Penutup & Kesimpulan
+Proyek ini berhasil mengembangkan sistem rekomendasi anime dengan mengimplementasikan dua algoritma utama, yaitu Content-Based Filtering (CBF) dan Collaborative Filtering (CF). Model Content-Based Filtering menunjukkan performa yang sangat baik dengan akurasi mencapai 100%, sedangkan model Collaborative Filtering berhasil memberikan evaluasi yang memuaskan dengan nilai MSE sebesar 0.599 dan RMSE sebesar 0.2445. Kedua model tersebut mampu menghasilkan rekomendasi yang relevan, dengan CBF menampilkan top-5 rekomendasi dan CF memberikan top-10 rekomendasi bagi pengguna.
+
+Keberhasilan ini membuktikan bahwa masing-masing pendekatan dapat memberikan kontribusi signifikan dalam sistem rekomendasi anime. Namun, untuk meningkatkan kualitas dan akurasi rekomendasi secara keseluruhan, pengembangan lebih lanjut disarankan dengan menggabungkan kedua metode tersebut dalam sebuah sistem Hybrid Filtering. Pendekatan hybrid ini diharapkan dapat memanfaatkan kelebihan masing-masing metode sekaligus mengatasi keterbatasan, seperti masalah cold start dan sparsity data, sehingga menghasilkan rekomendasi yang lebih personal dan tepat sasaran bagi pengguna.
+
 ---
 Salam,
 
