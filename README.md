@@ -140,8 +140,7 @@ Berdasarkan diagram batang "Jumlah Anime berdasarkan Tipe", tipe anime "TV" meru
 
 
 
-## Data Preparation
-# **5. Data Preprocessing & Preparation**
+## Data Preprocessing & Preparation
 1. **Sampling Data Rating**: Karena dataset rating sangat besar, maka mengambil sampel 50.000 baris secara acak untuk mempercepat proses dan mengurangi beban komputasi, sambil tetap menjaga representasi data.
 ```python
 # 1. Sampling Data Rating
