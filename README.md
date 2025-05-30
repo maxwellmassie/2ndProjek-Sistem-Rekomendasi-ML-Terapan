@@ -196,6 +196,13 @@ print("\nDuplicate Rows in df_rating:")
 print(df_rating.duplicated().sum())
 ```
 
+**output**:
+
+![image](https://github.com/user-attachments/assets/1b69b090-4540-46db-81b2-9bb3b9730660)
+
+Setelah tahap pembersihan data, hasil pengecekan menunjukkan bahwa tidak ada duplikat data pada df_rating.
+
+
 5. **Standarisasi Genre**: Mengambil genre pertama dari setiap anime dan menyamakan genre berdasarkan nama anime dengan mengambil genre yang paling sering muncul agar genre menjadi konsisten dan menghindari duplikasi atau inkonsistensi pada fitur genre.
 ```python
 # 5. Standarisasi Genre
@@ -233,6 +240,14 @@ print(f"Ada {len(duplicate_genre_names)} nama anime yang memiliki genre berbeda.
 print(duplicate_genre_names.head())
 ```
 
+**output**:
+
+![image](https://github.com/user-attachments/assets/8a952eef-2ae4-4c51-9a76-0eb73c866e8b)
+
+Setelah proses mengambil genre pertama dari setiap data, dan menyamakan genre berdasarkan nama anime, agar genre menjadi konsisten dan menghindari duplikasi atau inkonsistensi pada fitur genre. dan memberikan output 0 atau tidak ada name anime yang sama memiliki genre yang berbeda.
+
+
+
 6. **Menangani Rating -1**: Mengubah nilai rating -1 menjadi 0 untuk menandai anime yang ditonton tapi tidak diberi rating, sehingga memudahkan pemodelan tanpa kehilangan informasi interaksi pengguna.
 ```python
 # 6. Menangani Rating -1 dengan mengganti rating -1 menjadi 0 (menandakan user menonton tanpa memberi rating)
@@ -244,6 +259,13 @@ df_rating['rating'] = df_rating['rating'].apply(lambda x: 0 if x == -1 else x)
 # 7.Mengecek Ulang Data dataset anime_csv
 df_anime.head()
 ```
+**output**:
+
+![image](https://github.com/user-attachments/assets/a3d78073-4491-42b5-8d82-096157001c71)
+
+Kolom 'name' pada df_anime kini bersih dari karakter khusus, menghasilkan data nama yang lebih konsisten dan berkualitas.
+
+
 
 ## Model Solution & Result
 ***Notes**: karena kode Modeling terlalu panjang dan banyak, maka tidak memungkinkan untuk ditampilkan pada laporan. Kode lengkap berada pada file `ML_Terapan_Proyek2.ipynb`.*
