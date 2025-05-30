@@ -150,7 +150,7 @@ Di mana:
 - $\text{of our recommendations that are relevant}$: Jumlah item yang direkomendasikan oleh sistem yang benar-benar relevan bagi pengguna.
 - $\text{of items we recommended}$: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
 
-**Contoh: Berdasarkan Hasil SubBab `6.1.2 Mendapatkan Rekomendasi`**
+**Contoh: Berdasarkan Hasil SubBab `6.1.3 Mendapatkan Rekomendasi`**
 Jika sistem rekomendasi merekomendasikan 5 film, dan ke5 film tersebut relevan bagi pengguna, maka presisinya adalah:
 
 $$
