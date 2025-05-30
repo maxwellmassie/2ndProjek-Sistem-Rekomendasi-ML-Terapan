@@ -142,22 +142,18 @@ Presisi adalah metrik yang digunakan untuk mengukur seberapa relevan item yang d
 
 Rumus untuk presisi (`P`) adalah sebagai berikut:
 
-$$
-P = \frac{\text{# of our recommendations that are relevant}}{\text{# of items we recommended}}
-$$
+**P = (# rekomendasi yang relevan) / (# total rekomendasi)**
 
 Di mana:
-- $\text{# of our recommendations that are relevant}$: Jumlah item yang direkomendasikan oleh sistem yang benar-benar relevan bagi pengguna.
-- $\text{# of items we recommended}$: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
+- **# rekomendasi yang relevan**: Jumlah item yang direkomendasikan oleh sistem yang benar-benar relevan bagi pengguna.
+- **# total rekomendasi**: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
 
 ---
 
-**Contoh: Berdasarkan Hasil SubBab `6.1.2 Mendapatkan Rekomendasi`**
-Jika sistem rekomendasi merekomendasikan 5 film, dan ke5 film tersebut relevan bagi pengguna, maka presisinya adalah:
+**Contoh: Berdasarkan Hasil SubBab `6.1.2 Mendapatkan Rekomendasi`**  
+Jika sistem rekomendasi merekomendasikan 5 film, dan kelima film tersebut relevan bagi pengguna, maka presisinya adalah:
 
-$$
-P = \frac{5}{5} = 1
-$$
+**P = 5 / 5 = 1**
 
 Ini berarti **100%** dari rekomendasi adalah relevan.
 
