@@ -136,30 +136,30 @@ Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk meny
 
 ## Evaluation
 ### Evaluasi Content-Based
-## Menggunakan Metrik Evaluasi: Presisi dalam Sistem Rekomendasi
+**Metrik Evaluasi Sistem Rekomendasi: Presisi**
 
-1. **Presisi** adalah metrik yang digunakan untuk mengukur seberapa relevan item yang direkomendasikan oleh sistem kepada pengguna. Metrik ini penting dalam mengevaluasi kualitas dari sistem rekomendasi, terutama dalam hal relevansi.
+Presisi adalah metrik yang digunakan untuk mengukur seberapa relevan item yang direkomendasikan oleh sistem. Ini dihitung sebagai rasio jumlah rekomendasi yang relevan dengan total jumlah item yang direkomendasikan.
 
-**Rumus untuk presisi (`P`) adalah sebagai berikut:**
+Rumus untuk presisi (`P`) adalah sebagai berikut:
 
 $$
-P = \frac{\text{# Jumlah item relevan yang direkomendasikan}}{\text{# Jumlah total item yang direkomendasikan}}
+P = \frac{\text{of our recommendations that are relevant}}{\text{of items we recommended}}
 $$
 
-* Jumlah item relevan yang direkomendasikan: banyaknya item yang direkomendasikan oleh sistem dan benar-benar sesuai dengan preferensi pengguna.
-* Jumlah total item yang direkomendasikan: total seluruh item yang direkomendasikan sistem, baik relevan maupun tidak.
+Di mana:
+- $\text{of our recommendations that are relevant}$: Jumlah item yang direkomendasikan oleh sistem yang benar-benar relevan bagi pengguna.
+- $\text{of items we recommended}$: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
 
 ---
 
-**Contoh Kasus:**
-
-Jika sistem rekomendasi memberikan 5 rekomendasi kepada pengguna, dan kelima rekomendasi tersebut semuanya relevan, maka presisi dihitung sebagai:
+**Contoh: Berdasarkan Hasil SubBab `6.1.2 Mendapatkan Rekomendasi`**
+Jika sistem rekomendasi merekomendasikan 5 film, dan ke5 film tersebut relevan bagi pengguna, maka presisinya adalah:
 
 $$
 P = \frac{5}{5} = 1
 $$
 
-Artinya, **100% dari rekomendasi** yang diberikan sistem adalah relevan untuk pengguna tersebut.
+Ini berarti **100%** dari rekomendasi adalah relevan.
 
 ### Evaluasi Collaborative Filtering
 
