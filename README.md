@@ -281,7 +281,7 @@ Di mana:
 - $\text{of our recommendations that are relevant}$: Jumlah item yang direkomendasikan oleh sistem yang benar-benar relevan bagi pengguna.
 - $\text{of items we recommended}$: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
 
-**Contoh: Berdasarkan Hasil SubBab `6.1.3 Mendapatkan Rekomendasi`**
+**Contoh: Berdasarkan Hasil SubBab `6.1.3 Mendapatkan Rekomendasi` pada file `ML_Terapan_Proyek2.ipynb`.**
 ![image](https://github.com/user-attachments/assets/07652e04-0873-4168-b969-e2c32ecfe817)
 
 Jika sistem rekomendasi merekomendasikan 5 film, dan ke5 film tersebut relevan bagi pengguna, maka presisinya adalah:
