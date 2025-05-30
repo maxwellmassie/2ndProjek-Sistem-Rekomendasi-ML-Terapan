@@ -152,7 +152,9 @@ print(df_rating.info())
 # mengecek beberapa baris awal
 print(df_rating.head())
 ```
+
 **output**:
+
 ![image](https://github.com/user-attachments/assets/40eb8f95-2952-4a57-8140-e552a8cdcac8)
 Hasilnya mereplace DataFrame df_rating baru yang berisi 50.000 baris acak. DataFrame ini memiliki 3 kolom (user_id, anime_id, dan rating), semuanya bertipe integer (int64), dan tidak ada nilai kosong di ketiga kolom tersebut. Ini menunjukkan bahwa proses sampling berjalan sesuai harapan dan menghasilkan subset data yang bersih untuk analisis lebih lanjut.
 
