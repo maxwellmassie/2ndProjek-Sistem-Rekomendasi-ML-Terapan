@@ -282,6 +282,8 @@ Di mana:
 - $\text{of items we recommended}$: Total jumlah item yang direkomendasikan oleh sistem kepada pengguna.
 
 **Contoh: Berdasarkan Hasil SubBab `6.1.3 Mendapatkan Rekomendasi`**
+![image](https://github.com/user-attachments/assets/07652e04-0873-4168-b969-e2c32ecfe817)
+
 Jika sistem rekomendasi merekomendasikan 5 film, dan ke5 film tersebut relevan bagi pengguna, maka presisinya adalah:
 
 $$
