@@ -84,11 +84,11 @@ Dataset ini sangat cocok untuk eksplorasi data, pembangunan model rekomendasi be
 **Total Memori:** 672.5+ KB
 
 #### Menampilkan info data Rating.csv
-| Kolom     | Non-Null Count | Tipe Data |
-| :-------- | :------------- | :-------- |
-| `user_id` | 7,813,737      | `int64`   |
-| `anime_id`| 7,813,737      | `int64`   |
-| `rating`  | 7,813,737      | `int64`   |
+| Kolom     | Tipe Data |
+| :-------- | :-------- |
+| `user_id` | `int64`   |
+| `anime_id`| `int64`   |
+| `rating`  | `int64`   |
 
 **Ringkasan Tipe Data:**
 * `int64`: 3 kolom
