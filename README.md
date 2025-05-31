@@ -246,7 +246,6 @@ print(duplicate_genre_names.head())
 Setelah proses mengambil genre pertama dari setiap name, dan menyamakan genre berdasarkan nama anime, dan memberikan output `0` atau `tidak ada name anime yang sama memiliki genre yang berbeda`. Tujuannya agar genre menjadi konsisten dan menghindari duplikasi atau inkonsistensi pada fitur genre.
 
 
-
 6. **Menangani Rating -1**: Mengubah nilai rating -1 menjadi 0 untuk menandai anime yang ditonton tapi tidak diberi rating, sehingga memudahkan pemodelan tanpa kehilangan informasi interaksi pengguna.
 ```python
 # 6. Menangani Rating -1 dengan mengganti rating -1 menjadi 0 (menandakan user menonton tanpa memberi rating)
@@ -264,6 +263,89 @@ df_anime.head()
 
 Kolom `name` pada df_anime kini bersih dari karakter khusus, menghasilkan data nama yang lebih konsisten dan berkualitas.
 
+### Data Preprocessing & Preparation untuk Content-Based Filtering
+**Berdasarkan SubBab `6.1.1 TF-IDF Vectorizer` pada file `ML_Terapan_Proyek2.ipynb`.**
+#### 1. Persiapan Data untuk Content-Based Filtering
+```python
+# Menampilkan 5 data teratas pada kolom name dan genre
+df_anime[['name', 'genre']].head()
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/881eaddd-1703-4d43-bd18-cfe2705d35be)
+
+Langkah awal Content-Based Filtering dimulai dengan menyiapkan data yang relevan, yaitu hanya kolom name dan genre dari dataset anime. Ini dilakukan karena sistem akan merekomendasikan anime berdasarkan kemiripan genre antar judul. Menampilkan 5 data teratas berguna untuk memastikan struktur data sudah sesuai sebelum diproses lebih lanjut.
+
+#### 2. TF-IDF Vectorizer
+```python
+# Inisialisasi TF-IDF Vectorizer dengan tokenizer berbasis koma
+tf_idf = TfidfVectorizer(tokenizer=lambda x: [i.strip() for i in x.split(',')])
+
+# Melakukan fit pada data genre
+tf_idf.fit(df_anime['genre'])
+
+# Menampilkan nama-nama fitur (genre unik)
+tf_idf.get_feature_names_out()
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/567a5f3c-47aa-498f-bef0-519f7fe98583)
+
+
+selanjutnya, menggunakan TF-IDF Vectorizer untuk mengubah data genre menjadi representasi numerik berbasis bobot kata. Karena genre dipisahkan oleh koma, digunakan tokenizer khusus untuk memecahnya. Setelah proses fit, model menghasilkan daftar genre unik sebagai fitur. Hasil ini akan digunakan untuk mengukur kemiripan antar anime berdasarkan genre-nya.
+
+#### 3. Transformasi genre ke bentuk matriks TF-IDF
+```python
+# Transformasi genre ke bentuk matriks TF-IDF
+tfidf_matrix = tf_idf.fit_transform(df_anime['genre'])
+
+# Melihat ukuran matriks (baris = anime, kolom = genre unik)
+print("Ukuran TF-IDF Matrix:", tfidf_matrix.shape)
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/c6bc9782-ed72-4691-85a7-7adab8c74ea6)
+
+
+Pada tahap ini, seluruh kolom genre dari dataset anime diubah menjadi matriks numerik menggunakan TF-IDF. Hasilnya adalah matriks berukuran 12017 baris (jumlah anime) dan 40 kolom (jumlah genre unik). Matriks ini merepresentasikan seberapa penting sebuah genre bagi setiap anime, dan menjadi dasar untuk menghitung kemiripan antar anime dalam sistem rekomendasi.
+
+
+#### 4. Konversi ke bentuk matriks dense untuk keperluan visualisasi
+```python
+# Konversi ke bentuk matriks dense untuk keperluan visualisasi
+dense_matrix = tfidf_matrix.todense()
+print(dense_matrix)
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/4c5f38ca-6aee-4c7e-9751-9b5a4b8992ec)
+
+
+TF-IDF matrix yang awalnya berbentuk sparse dikonversi ke bentuk dense agar lebih mudah divisualisasikan dan dipahami. Setiap baris mewakili satu anime, dan setiap kolom menunjukkan bobot TF-IDF dari sebuah genre. Nilai 0 berarti genre tersebut tidak relevan bagi anime tersebut, sementara nilai 1.0 menunjukkan tingkat relevansi genre terhadap anime.
+
+#### 5. menampilkan sebagian matriks TF-IDF sebagai DataFrame
+```python
+# menampilkan sebagian matriks TF-IDF sebagai DataFrame
+tfidf_df = pd.DataFrame(
+    dense_matrix,
+    columns=tf_idf.get_feature_names_out(),
+    index=df_anime['name']
+)
+
+# Menampilkan contoh 10 anime (baris) dan 22 genre acak (kolom)
+tfidf_df.sample(10, axis=0).sample(22, axis=1)
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/4b2adaea-06f0-4ea6-9cca-5889f45d3dde)
+
+
+Pada tahap ini, mengonversi matriks TF-IDF ke dalam bentuk DataFrame agar lebih mudah dibaca dan dianalisis. Setiap baris mewakili anime berdasarkan nama, dan setiap kolom menunjukkan bobot genre tertentu. Kemudian, kita menampilkan sampel acak dari 10 anime dan 22 genre untuk melihat bagaimana genre diwakili dalam bentuk angka—nilai 1 berarti genre tersebut dominan pada anime itu, sementara 0 berarti tidak relevan. Ini akan menjadi dasar untuk menghitung kemiripan antar anime.
+
+### Data Preprocessing & PreparationCollaborative Filtering
+#### 1. Filtering ratings
+#### 2. Label Encoding
+#### 
 
 
 ## Model Solution & Result
@@ -272,7 +354,6 @@ Kolom `name` pada df_anime kini bersih dari karakter khusus, menghasilkan data n
 ### 1. Content-Based Filtering
 Model Content-Based Filtering memiliki kelebihan dalam memberikan rekomendasi yang personal dan relevan karena didasarkan pada karakteristik item yang disukai pengguna, serta tidak memerlukan data dari pengguna lain sehingga cocok untuk sistem dengan jumlah pengguna yang masih terbatas. Namun, model ini juga memiliki kekurangan, seperti terbatasnya cakupan rekomendasi karena hanya menyarankan item yang mirip dengan yang sudah diketahui, serta kesulitan menangani cold start untuk item yang minim informasi.
 
-Dalam implementasinya, model ini dibangun untuk merekomendasikan anime berdasarkan kemiripan genre. Proses dimulai dengan menyiapkan data yang hanya mencakup kolom name dan genre, karena genre menjadi dasar perhitungan kemiripan. Genre diolah menggunakan TF-IDF Vectorizer dengan tokenizer khusus untuk memecah genre yang dipisahkan koma, menghasilkan representasi numerik dari setiap genre. Hasilnya adalah matriks TF-IDF berukuran 12017×40 yang menunjukkan bobot pentingnya setiap genre bagi tiap anime. Matriks ini kemudian dikonversi ke dalam DataFrame agar lebih mudah dianalisis, di mana setiap nilai menggambarkan kekuatan representasi sebuah genre pada anime tertentu. Selanjutnya, digunakan cosine similarity untuk mengukur tingkat kemiripan antar anime berdasarkan vektor genre-nya. Hasilnya adalah matriks similarity 12017×12017 yang menunjukkan seberapa mirip dua anime dalam hal genre, dan menjadi dasar dalam menghasilkan rekomendasi anime yang relevan secara konten.
 
 #### Result Mendapatkan Rekomendasi dengan Content-Based Filtering
 Pada tahap ini, dibuat fungsi anime_recommendations yang berfungsi untuk memberikan rekomendasi anime yang mirip berdasarkan nama anime yang diberikan sebagai input. Fungsi ini memanfaatkan matriks cosine similarity yang telah dihitung sebelumnya untuk mencari k anime dengan nilai kemiripan tertinggi terhadap anime yang dicari. Nilai k diatur sebesar 5, artinya sistem akan menampilkan 5 rekomendasi teratas. Fungsi ini juga memastikan bahwa anime yang dijadikan acuan tidak termasuk dalam daftar rekomendasi, sehingga hanya anime lain yang relevan secara genre yang ditampilkan.
@@ -287,7 +368,6 @@ Sebagai contoh, sistem digunakan untuk mencari anime yang mirip dengan "Kimi no 
 ### 2. Collaborative Filtering
 Model Collaborative Filtering memiliki kelebihan utama dalam kemampuannya memberikan rekomendasi yang bersifat personalized dengan memanfaatkan pola interaksi antar pengguna dan item, tanpa perlu mengetahui atribut detail dari item (seperti genre atau deskripsi). Model ini juga mampu menemukan hubungan tersembunyi antar item berdasarkan preferensi pengguna. Namun, kekurangannya terletak pada masalah cold start, di mana model sulit memberikan rekomendasi untuk pengguna baru atau item baru yang belum memiliki cukup interaksi, serta tergantung pada ketersediaan data rating yang cukup besar dan beragam.
 
-Model Collaborative Filtering dibangun dengan tujuan merekomendasikan anime berdasarkan pola interaksi pengguna dan item (anime) melalui data rating. Proses dimulai dengan menyiapkan data rating yang difilter agar hanya mencakup anime yang ada di dataset utama dan pengguna yang memberikan minimal 5 rating, untuk meningkatkan kualitas data. Selanjutnya dilakukan label encoding terhadap user_id dan anime_id menjadi angka berurutan mulai dari 0, agar dapat digunakan dalam embedding layer. Setelah itu, data rating dinormalisasi ke 0-1, lalu dipisahkan menjadi fitur input (user dan anime) dan target output (rating), dengan pembagian data 80% untuk training dan 20% untuk validasi. Model yang digunakan adalah RecommenderNet, sebuah neural network yang memanfaatkan embedding untuk merepresentasikan pengguna dan anime dalam vektor berdimensi rendah, lalu menghitung prediksi rating dengan dot product dan bias, serta aktivasi sigmoid untuk memastikan output dalam rentang 0–1. Model ini dikompilasi dengan optimizer Adam, loss function MSE, dan metrik evaluasi RMSE. Pelatihan dilakukan selama 100 epoch dengan batch size 32 dan validasi dilakukan setiap epoch untuk memantau performa serta mencegah overfitting.
 
 #### Result Mendapatkan Rekomendasi dengan Collaborative Filtering
 Pada tahap Result Collaborative Filtering, sistem rekomendasi mulai dengan menyalin df_anime menjadi anime_df sebagai basis data utama untuk penggabungan dan penampilan hasil. Selanjutnya, sistem mengambil secara acak satu user_id dari data rating dan menentukan riwayat tontonan user tersebut dengan memfilter semua anime yang sudah pernah dinilai. Setelah itu, sistem mengidentifikasi anime yang belum pernah ditonton oleh user dengan membandingkan anime_id yang ada di dataset dengan riwayat user, lalu mengubahnya ke bentuk encoded menggunakan anime_encoder. Jika tidak ada kandidat, sistem memilih 10 anime acak sebagai alternatif. Kemudian, sistem membentuk array pasangan user-anime encoded sebagai input model, dan menggunakan model rekomendasi untuk memprediksi rating dari setiap anime yang belum ditonton oleh user. Hasil prediksi di-flatten menjadi array satu dimensi agar mudah diproses. Terakhir, sistem memilih 10 anime dengan prediksi rating tertinggi untuk direkomendasikan, mengubah kembali ID encoded ke ID asli, dan menampilkan 5 anime terbaik yang sudah ditonton user serta 10 rekomendasi anime teratas yang belum ditonton lengkap dengan nama, genre, dan nilai prediksi rating-nya.
