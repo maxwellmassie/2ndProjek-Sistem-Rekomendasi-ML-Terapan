@@ -344,8 +344,100 @@ Pada tahap ini, mengonversi matriks TF-IDF ke dalam bentuk DataFrame agar lebih 
 
 ### Data Preprocessing & PreparationCollaborative Filtering
 #### 1. Filtering ratings
+```python
+# Filtering ratings
+
+# Hanya mengambil anime yang ada di df_anime (join berdasarkan anime_id)
+df_rating = df_rating[df_rating['anime_id'].isin(df_anime['anime_id'])]
+
+# Filter user dengan minimal 5 rating (mengurangi noise dan user yang sangat jarang aktif)
+user_counts = df_rating['user_id'].value_counts()
+active_users = user_counts[user_counts >= 5].index
+df_rating = df_rating[df_rating['user_id'].isin(active_users)]
+
+# Reset index setelah filter
+df_rating.reset_index(drop=True, inplace=True)
+
+# Info data setelah preprocessing
+print("Shape df_anime:", df_anime.shape)
+print("Shape df_rating:", df_rating.shape)
+print("Sample df_rating:")
+print(df_rating.head())
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/a110b181-5935-4838-92ac-1f821280b785)
+
+Di tahap Data Preparation Collaborative Filtering ini, pertama-tama data rating difilter agar hanya berisi anime yang memang ada di dataset anime (berdasarkan anime_id). Kemudian, hanya user yang memberi rating minimal 5 kali yang diikutsertakan, supaya data lebih bersih dan mengurangi noise dari user yang jarang aktif. Setelah itu, index data di-reset agar rapi. Dengan langkah ini, dataset rating siap untuk digunakan dalam pemodelan Collaborative Filtering.
+
 #### 2. Label Encoding
-#### 
+```python
+# Label Encoding
+# Mengubah user_id dan anime_id menjadi representasi numerik berurutan (0, 1, 2, ...)
+user_encoder = LabelEncoder()
+anime_encoder = LabelEncoder()
+
+df_rating['user'] = user_encoder.fit_transform(df_rating['user_id'])
+df_rating['anime'] = anime_encoder.fit_transform(df_rating['anime_id'])
+
+# Menyimpan jumlah unik user dan anime untuk input dimensi pada embedding layer model
+num_users = df_rating['user'].nunique()
+num_anime = df_rating['anime'].nunique()
+
+print(f"Jumlah user unik: {num_users}")
+print(f"Jumlah anime unik: {num_anime}")
+print("\nDataFrame df_rating setelah label encoding:")
+print(df_rating.head())
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/866182e5-3503-438a-a6b2-a84f4229531f)
+
+Selanjutnya Langkah Label Encoding ini mengubah user_id dan anime_id yang awalnya berupa angka acak atau ID asli menjadi representasi numerik berurutan mulai dari 0. Ini penting agar data bisa langsung dipakai sebagai input untuk embedding layer di model Collaborative Filtering. Setelah proses ini, kita tahu ada 1446 user unik dan 3296 anime unik yang siap diproses di model. Data df_rating kini memiliki kolom tambahan user dan anime yang berisi ID numerik baru untuk keperluan pemodelan.
+
+#### 3. Membagi Data untuk Training dan Validasi
+```python
+# Membagi Data untuk Training dan Validasi
+df_shuffled = df_rating.sample(frac=1, random_state=42).reset_index(drop=True)
+print("\nDataFrame df_rating setelah diacak:")
+print(df_shuffled.head())
+
+#  min dan max rating untuk normalisasi
+min_rating = df_shuffled['rating'].min()
+max_rating = df_shuffled['rating'].max()
+
+# Membuat variabel x untuk mencocokkan data user dan anime menjadi satu value
+x = df_shuffled[['user', 'anime']].values
+
+# Membuat variabel y untuk membuat rating dari hasil
+# Normalisasi rating ke rentang 0-1
+y = df_shuffled['rating'].apply(lambda x: (x - min_rating) / (max_rating - min_rating)).values
+
+# Membagi menjadi 80% data train dan 20% data validasi
+train_indices = int(0.8 * df_shuffled.shape[0])
+x_train, x_val, y_train, y_val = (
+    x[:train_indices],
+    x[train_indices:],
+    y[:train_indices],
+    y[train_indices:]
+)
+
+print(f"\nBentuk x_train: {x_train.shape}")
+print(f"Bentuk y_train: {y_train.shape}")
+print(f"Bentuk x_val: {x_val.shape}")
+print(f"Bentuk y_val: {y_val.shape}")
+
+# Menampilkan sebagian kecil dari data x dan y (untuk verifikasi)
+print("\nContoh x (user, anime):")
+print(x[:5])
+print("\nContoh y (normalized rating):")
+print(y[:5])
+```
+**output**:
+
+![image](https://github.com/user-attachments/assets/9e5cf097-8fc8-4451-960d-cd91e4e9b79d)
+
+Data rating diacak lalu rating dinormalisasi ke rentang 0-1. Data user dan anime digabungkan sebagai fitur input (x), dan rating sebagai target (y). Data dibagi 80% untuk training dan 20% untuk validasi, menghasilkan masing-masing sekitar 7.473 dan 1.869 data, siap untuk pelatihan model collaborative filtering.
 
 
 ## Model Solution & Result
