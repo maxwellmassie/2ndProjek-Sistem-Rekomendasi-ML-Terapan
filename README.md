@@ -446,7 +446,7 @@ Data rating diacak lalu rating dinormalisasi ke rentang 0-1. Data user dan anime
 ***Notes**: karena kode Modeling terlalu panjang dan banyak, maka tidak memungkinkan untuk ditampilkan pada laporan. Kode lengkap berada pada file `ML_Terapan_Proyek2.ipynb`.*
 
 ### 1. Content-Based Filtering
-Model Content-Based Filtering memiliki kelebihan dalam memberikan rekomendasi yang personal dan relevan karena didasarkan pada karakteristik item yang disukai pengguna, serta tidak memerlukan data dari pengguna lain sehingga cocok untuk sistem dengan jumlah pengguna yang masih terbatas. Namun, model ini juga memiliki kekurangan, seperti terbatasnya cakupan rekomendasi karena hanya menyarankan item yang mirip dengan yang sudah diketahui, serta kesulitan menangani cold start untuk item yang minim informasi.
+Model Content-Based Filtering memiliki kelebihan dalam memberikan rekomendasi yang personal dan relevan karena didasarkan pada karakteristik item yang disukai pengguna. Ide utamanya adalah merekomendasikan item yang memiliki kemiripan fitur atau atribut dengan item yang pernah disukai atau dikonsumsi oleh pengguna di masa lalu. Selain itu, model ini tidak memerlukan data dari pengguna lain, sehingga cocok diterapkan pada sistem dengan jumlah pengguna yang masih terbatas. Namun, pendekatan ini juga memiliki kekurangan, seperti cakupan rekomendasi yang terbatas karena hanya menyarankan item yang serupa dengan preferensi sebelumnya, serta kurang efektif dalam menangani masalah cold start, terutama untuk item baru yang belum memiliki cukup informasi.
 
 
 #### Result Mendapatkan Rekomendasi dengan Content-Based Filtering
@@ -458,9 +458,8 @@ Pada tahap ini, dibuat fungsi anime_recommendations yang berfungsi untuk memberi
 Sebagai contoh, sistem digunakan untuk mencari anime yang mirip dengan "Kimi no Na wa", yang memiliki genre Drama. Sistem mengecek baris dari anime tersebut dalam dataset, lalu menghitung kemiripan genre dengan seluruh anime lainnya menggunakan nilai cosine similarity dari data TF-IDF. Hasilnya adalah 5 rekomendasi anime yang memiliki genre yang mirip,dalam hal ini drama-dengan "Kimi no Na wa", memberikan saran tontonan yang relevan berdasarkan konten.
 
 
-
 ### 2. Collaborative Filtering
-Model Collaborative Filtering memiliki kelebihan utama dalam kemampuannya memberikan rekomendasi yang bersifat personalized dengan memanfaatkan pola interaksi antar pengguna dan item, tanpa perlu mengetahui atribut detail dari item (seperti genre atau deskripsi). Model ini juga mampu menemukan hubungan tersembunyi antar item berdasarkan preferensi pengguna. Namun, kekurangannya terletak pada masalah cold start, di mana model sulit memberikan rekomendasi untuk pengguna baru atau item baru yang belum memiliki cukup interaksi, serta tergantung pada ketersediaan data rating yang cukup besar dan beragam.
+Model Collaborative Filtering memiliki kelebihan utama dalam kemampuannya memberikan rekomendasi yang bersifat personal dengan memanfaatkan pola interaksi antara pengguna dan item, tanpa memerlukan informasi atribut detail dari item seperti genre atau deskripsi. Berbeda dengan content-based filtering, pendekatan ini bergantung pada opini atau preferensi komunitas pengguna secara keseluruhan. Collaborative Filtering sendiri terbagi menjadi dua jenis pendekatan, yaitu model-based, yang menggunakan algoritma machine learning untuk mempelajari pola dari data interaksi, dan memory-based, yang mengandalkan kemiripan langsung antar pengguna atau antar item berdasarkan data historis. Model ini juga unggul dalam menemukan hubungan tersembunyi antar item berdasarkan pola rating pengguna. Namun, kelemahannya terletak pada masalah cold start, yaitu kesulitan memberikan rekomendasi untuk pengguna atau item baru yang belum memiliki cukup interaksi, serta ketergantungan pada data rating yang besar dan beragam agar performanya optimal.
 
 
 #### Result Mendapatkan Rekomendasi dengan Collaborative Filtering
