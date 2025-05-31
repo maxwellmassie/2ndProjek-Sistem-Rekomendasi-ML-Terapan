@@ -343,6 +343,7 @@ tfidf_df.sample(10, axis=0).sample(22, axis=1)
 Pada tahap ini, mengonversi matriks TF-IDF ke dalam bentuk DataFrame agar lebih mudah dibaca dan dianalisis. Setiap baris mewakili anime berdasarkan nama, dan setiap kolom menunjukkan bobot genre tertentu. Kemudian, kita menampilkan sampel acak dari 10 anime dan 22 genre untuk melihat bagaimana genre diwakili dalam bentuk angka—nilai 1 berarti genre tersebut dominan pada anime itu, sementara 0 berarti tidak relevan. Ini akan menjadi dasar untuk menghitung kemiripan antar anime.
 
 ### Data Preprocessing & PreparationCollaborative Filtering
+**Berdasarkan SubBab `6.2.1 Data Preparation untuk Collaborative Filtering` pada file `ML_Terapan_Proyek2.ipynb`.**
 #### 1. Filtering ratings
 ```python
 # Filtering ratings
@@ -396,6 +397,7 @@ print(df_rating.head())
 Selanjutnya Langkah Label Encoding ini mengubah user_id dan anime_id yang awalnya berupa angka acak atau ID asli menjadi representasi numerik berurutan mulai dari 0. Ini penting agar data bisa langsung dipakai sebagai input untuk embedding layer di model Collaborative Filtering. Setelah proses ini, kita tahu ada 1446 user unik dan 3296 anime unik yang siap diproses di model. Data df_rating kini memiliki kolom tambahan user dan anime yang berisi ID numerik baru untuk keperluan pemodelan.
 
 #### 3. Membagi Data untuk Training dan Validasi
+**Berdasarkan SubBab `6.2.2 Membagi Data untuk Training dan Validasi` pada file `ML_Terapan_Proyek2.ipynb`.**
 ```python
 # Membagi Data untuk Training dan Validasi
 df_shuffled = df_rating.sample(frac=1, random_state=42).reset_index(drop=True)
