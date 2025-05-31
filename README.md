@@ -342,7 +342,7 @@ tfidf_df.sample(10, axis=0).sample(22, axis=1)
 
 Pada tahap ini, mengonversi matriks TF-IDF ke dalam bentuk DataFrame agar lebih mudah dibaca dan dianalisis. Setiap baris mewakili anime berdasarkan nama, dan setiap kolom menunjukkan bobot genre tertentu. Kemudian, kita menampilkan sampel acak dari 10 anime dan 22 genre untuk melihat bagaimana genre diwakili dalam bentuk angka—nilai 1 berarti genre tersebut dominan pada anime itu, sementara 0 berarti tidak relevan. Ini akan menjadi dasar untuk menghitung kemiripan antar anime.
 
-### Data Preprocessing & PreparationCollaborative Filtering
+### Data Preprocessing & Preparation untuk Collaborative Filtering
 **Berdasarkan SubBab `6.2.1 Data Preparation untuk Collaborative Filtering` pada file `ML_Terapan_Proyek2.ipynb`.**
 #### 1. Filtering ratings
 ```python
